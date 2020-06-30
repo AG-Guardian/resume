@@ -102,6 +102,13 @@ a:hover {
   text-align: center;
 }
 
+.center a {
+  border-radius: unset;
+  background-color: unset;
+  color: #000;
+  padding: unset;
+}
+
 .row {
   display: flex;
 }

@@ -86,7 +86,7 @@ p {
   margin: 10px;
 }
 
-a {
+.btn {
   border-radius: 6px;
   background-color: #176598;
   color: #fff;
@@ -94,19 +94,12 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+.btn:hover {
   background-color: #2295e0;
 }
 
 .center {
   text-align: center;
-}
-
-.center a {
-  border-radius: unset;
-  background-color: unset;
-  color: #000;
-  padding: unset;
 }
 
 .row {

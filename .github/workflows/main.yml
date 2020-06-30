@@ -1,8 +1,29 @@
-- name: GCP Cloud Storage: Deploy
-  uses: abinmn/gcp-storage-bucket-action@v1.0
-  with:
-    service_key: {{secrets.secret}}
-    project: Resume
-    home_page_path: index.html
-    error_page_path: 404.html
-    build_folder: ${{ github.workspace }}
+name: Website Deploy
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          ref: refs/heads/master
+          fetch-depth: 1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '13.x'
+      - uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: '276.0.0'
+          service_account_email: ${{ secrets.GCP_SA_EMAIL }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+      - run: gsutil -m rsync -d -c -r public gs://Resume
+      - run: gsutil -m setmeta -h "Cache-Control:public, max-age=3600" gs://Resume/**/*.html
+      - run: gsutil -m setmeta -h "Cache-Control:public, max-age=31536000" gs://Resume/js/*.js
+      - run: gsutil -m setmeta -h "Cache-Control:public, max-age=31536000" gs://Resume/css/*.css

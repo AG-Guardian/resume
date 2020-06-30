@@ -12,18 +12,12 @@ jobs:
         with:
           ref: refs/heads/master
           fetch-depth: 1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '13.x'
-      - uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: 'latest'
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
           version: '276.0.0'
           service_account_email: ${{ secrets.GCP_SA_EMAIL }}
           service_account_key: ${{ secrets.SECRET }}
-      - run: gsutil -m rsync -d -c -r gs://www.zachgreer.com
+      - run: gsutil -m rsync -d -c -r resume gs://www.zachgreer.com
       - run: gsutil -m setmeta -h "Cache-Control:public, max-age=3600" gs://www.zachgreer.com/**/*.html
       - run: gsutil -m setmeta -h "Cache-Control:public, max-age=31536000" gs://www.zachgreer.com/js/*.js
       - run: gsutil -m setmeta -h "Cache-Control:public, max-age=31536000" gs://www.zachgreer.com/css/*.css

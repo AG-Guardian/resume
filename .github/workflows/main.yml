@@ -1,0 +1,9 @@
+- name: Deploy
+  uses: actions/checkout@v2
+  uses: AG-Guardian/gcp-storage-bucket-action
+  with:
+    service_key: {{secrets.secret}}
+    project: Resume
+    home_page_path: index.html
+    error_page_path: 404.html
+    build_folder: ${{ github.workspace }}

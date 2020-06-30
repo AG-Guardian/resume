@@ -1,6 +1,5 @@
-- name: Deploy
-  uses: actions/checkout@v2
-  uses: AG-Guardian/gcp-storage-bucket-action
+- name: GCP Cloud Storage: Deploy
+  uses: abinmn/gcp-storage-bucket-action@v1.0
   with:
     service_key: {{secrets.secret}}
     project: Resume

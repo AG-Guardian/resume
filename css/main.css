@@ -237,8 +237,15 @@ p {
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
+@media only screen and (max-width: 35em) {
+  .btn {
+   font-size: 0;
+    padding-top: 20px;
+  }
+
+  .btn > .fa {
+    font-size: initial;
+  }
 }
 
 @media print,

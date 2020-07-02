@@ -1,5 +1,5 @@
-# resume
-My personal resume website.
+# Zach Greer's Resume
+[My personal resume website.](https://www.zachgreer.com "Zach Greer's Resume")
 
 Written in HTML5 and CSS, uses JS to track views with GCP Firestore. Hosted in GCP Firebase and deployed via GitHub Actions.
 

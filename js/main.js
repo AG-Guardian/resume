@@ -1,6 +1,13 @@
-var db = firebase.firestore();
+// TODO: add recaptcha auth https://firebase.googleblog.com/2017/08/guard-your-web-content-from-abuse-with.html
 
-var docRef = db.collection("visitors").doc("count");
+firebase.auth().signInAnonymously().catch(function(error) {
+  let errorCode = error.code;
+  let errorMessage = error.message;
+});
+
+let db = firebase.firestore();
+
+let docRef = db.collection("visitors").doc("count");
 
 docRef.get().then(function(doc) {
   let n;
@@ -28,7 +35,7 @@ docRef.get().then(function(doc) {
   nums = fill.concat(nums);
 
   document.getElementById('counter').innerHTML = '';
-  for (var i of nums) {
+  for (let i of nums) {
     document.getElementById('counter').innerHTML += '<span class="counter-item">' + i + '</span>';
   }
 

@@ -30,7 +30,7 @@ firebase.auth().signInAnonymously().then( ()=> {
     }
     nums = fill.concat(nums);
 
-    document.getElementById('views').innerHTML = '<b>Views: </b>';
+    document.getElementById("counter-loader").style.display = 'none';
     document.getElementById('counter').innerHTML = '';
     for (let i of nums) {
       document.getElementById('counter').innerHTML += '<span class="counter-item">' + i + '</span>';

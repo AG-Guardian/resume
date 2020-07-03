@@ -22,3 +22,17 @@
 }());
 
 // Place any jQuery/helper plugins in here.
+
+var firebaseConfig = {
+  apiKey: "AIzaSyCD_XEXzCrcfSOKjv5_EkXYGI7vqudhg-0",
+  authDomain: "resume-db-f735f.firebaseapp.com",
+  databaseURL: "https://resume-db-f735f.firebaseio.com",
+  projectId: "resume-db-f735f",
+  storageBucket: "resume-db-f735f.appspot.com",
+  messagingSenderId: "1056862674983",
+  appId: "1:1056862674983:web:865cc0d0c731d1c195ae02",
+  measurementId: "G-YL63BS491G"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();

@@ -6,6 +6,7 @@
   <title>Zach Greer's Resume</title>
   <meta name="description" content="My personal resume website. Written in HTML5 and CSS, uses JS to track views with GCP Firestore. Hosted in GCP Firebase and deployed via GitHub Actions. Also includes Dockerfile for possible future container deployments. Currently hosted using a static storage bucket in Firebase instead to keep costs down.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fafafa">
 
   <meta property="og:title" content="Zach Greer's Resume">
   <meta property="og:type" content="profile">
@@ -19,16 +20,24 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"/>
 
-  <meta name="theme-color" content="#fafafa">
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/viewCounter.js"></script>
 </head>
 
 <body>
-
-  <!-- Add your site or application content here -->
   <div class="header">
     <div class="header-left">
-      <p class="counter-text"><b>Views: </b></p>
+      <p class="counter-text" id="views"><b>Views: </b></p>
       <div id="counter"></div>
     </div>
     <div class="header-right">
@@ -121,13 +130,6 @@
   <p class="center">Independent game developer. Skilled carpenter and wood turner. Camping and outdoors enthusiast.</p>
 
   <!-- scripts -->
-  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
-  <script src="js/main.js"></script>
-
   <script>
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
     ga('create', 'UA-171286389-1', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')

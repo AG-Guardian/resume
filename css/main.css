@@ -266,14 +266,24 @@ p {
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (max-width: 35em) {
+@media only screen and (max-width: 34.9999em) {
   .btn {
-   font-size: 0;
+    font-size: 0;
     padding-top: 20px;
   }
 
   .btn > .fa {
     font-size: initial;
+  }
+
+  .desktop {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 35em) {
+  .mobile {
+    display: none !important;
   }
 }
 

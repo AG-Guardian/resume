@@ -78,6 +78,10 @@ h2 {
   font-size: large;
 }
 
+h3, h4 {
+  text-align: inherit;
+}
+
 ul {
   margin: 10px 10px 10px 50px;
 }
@@ -112,10 +116,12 @@ p {
 
 .left {
   text-align: left;
+  margin-left: 10px;
 }
 
 .right {
   text-align: right;
+  margin-right: 10px;
 }
 
 .header {
